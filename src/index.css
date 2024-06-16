@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+}
+
+#main-container {
+  display: grid;
+  grid-template: 50px 1fr /100px 1fr;
+  grid-template-areas:
+    "header header"
+    "navbar content";
+  height: 100svh;
+}
+
+#skill {
+  display: grid;
+  grid-template: 50px 1fr/ 250px 1fr;
+  grid-template-areas:
+    "title title"
+    "tackstack library";
+}
+
+#title {
+  grid-area: title;
+  position: relative;
+}
+
+#title::before {
+  content: "";
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  top: -200%;
+  background-color: #efae2e;
+  border-bottom-right-radius: 18px;
+}
+
+ul > li {
+  list-style-type: circle;
+}
+
+#tackstack {
+  grid-area: tackstack;
+  box-sizing: border-box;
+  position: relative;
+}
+#library {
+  grid-area: library;
+}
+
+#header {
+  grid-area: header;
+  box-sizing: border-box;
+}
+#navbar {
+  grid-area: navbar;
+  height: calc(100% - 50px);
+}
+#content {
+  grid-area: content;
+}
+
+hr {
+  border-bottom: 2px solid #979689;
+}
+
+#sapaan {
+  letter-spacing: 0.2rem;
+}
+
+#navbar > div > ul > li {
+  writing-mode: vertical-lr;
+  font-family: "Oswald", sans-serif;
+}
+
+/* #img {
+  position: relative;
+  z-index: 1;
+}
+
+#img::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% 50% -50%);
+  background-image: linear-gradient(
+    to left top,
+    #dadada,
+    #ffd1ed,
+    #ffc4c5,
+    #ffd175,
+    #e5f637
+  );
+  width: 50%;
+  height: 100%;
+  z-index: 0;
+  border-radius: 50%;
+} */
+
+#name {
+  letter-spacing: 0.2rem;
+}
