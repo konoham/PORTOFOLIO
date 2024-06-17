@@ -1,9 +1,8 @@
-import React from "react";
 import Stack from "./stack";
 
 const TackStack = () => {
   return (
-    <div className="mt-[180px]" id="tackstack">
+    <div className="mt-[140px]" id="tackstack">
       <Stack img={"./tackstack/html.png"} width={"w-[2rem]"} />
       <Stack img={"./tackstack/css.svg"} width={"w-[4rem]"} />
       <Stack img={"./tackstack/js.png"} width={"w-[6rem]"} />
