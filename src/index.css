@@ -28,20 +28,22 @@ body {
   grid-template-areas:
     "title title"
     "tackstack library";
+  position: relative;
+  z-index: 1;
 }
 
 #title {
   grid-area: title;
-  position: relative;
 }
 
-#title::before {
+.skill::before {
   content: "";
   width: 100px;
   height: 100px;
   position: absolute;
   left: 0;
-  top: -200%;
+  top: -11%;
+  z-index: 3;
   background-color: #efae2e;
   border-bottom-right-radius: 18px;
 }

@@ -2,8 +2,8 @@ import Form from "./component/CONTACT/form/form";
 import Header from "./component/header/header";
 import Hero from "./component/HERO/content/Content";
 import Navbar from "./component/HERO/navbar/Navbar";
-import Card from "./component/PORTOFOLIO/card/card";
-import Library from "./component/SKILL/card/card";
+import CardPlay from "./component/LIBRARY/cardPlay";
+import Card from "./component/SKILL/card/card";
 import TackStack from "./component/SKILL/tackStack/TackStack";
 import Title from "./component/title/title";
 import "./index.css";
@@ -16,20 +16,17 @@ function App() {
         <Hero />
         <Navbar />
       </section>
-      <section
-        id="skill"
-        className="h-svh text-center mt-[100px] overflow-hidden"
-      >
-        <Title title={"skill"} id={"title"} />
+      <section id="skill" className="h-svh text-center mt-[100px] skill">
+        <Title title={"skill & PORTOFOLIO"} id={"title"} />
         <TackStack />
-        <Library />
-      </section>
-      <section id="portofolio" className="h-svh mt-[-100px]">
-        <Title title={"portofolio"} />
         <Card />
       </section>
+      <section id="portofolio" className="h-svh mt-[-100px]">
+        <Title title={"portofolio"} id={"Title-portofolio"} />
+        <CardPlay />
+      </section>
       <section id="contact" className="h-svh ">
-        <Title title={"contact"} />
+        <Title title={"contact"} id={"Title-contact"} />
         <Form />
         <svg
           viewBox="0 0 200 200"

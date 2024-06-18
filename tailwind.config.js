@@ -8,6 +8,7 @@ export default {
         primary: "#C8B6AE",
         second: "#EFAE2E",
         treed: "#686D76",
+        card: "#F7F5F1",
       },
     },
   },

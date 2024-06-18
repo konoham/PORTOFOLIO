@@ -1,7 +1,7 @@
 const Data = [
   {
     title: "JS LIBRARY",
-    img: "./profil.png",
+    img: "./javascript.jpg",
     library: [
       "React js",
       "Next js",
@@ -12,12 +12,12 @@ const Data = [
   },
   {
     title: "react LIBRARY",
-    img: "./profil.png",
+    img: "./react.jpg",
     library: ["React Router", "Axios", "React Hook Form", "zustand", "yup"],
   },
   {
     title: "stack database",
-    img: "./profil.png",
+    img: "./db.jpg",
     library: ["mysql", "firebase", "prisma orm"],
   },
 ];
