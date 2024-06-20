@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Fragment } from "react";
 
 const TackStack = () => {
   const variant = {
@@ -58,7 +57,6 @@ const TackStack = () => {
             id="hr"
           />
           <motion.img
-            key={i}
             variants={variant}
             initial="hidden"
             animate="visible"
@@ -67,7 +65,6 @@ const TackStack = () => {
             src={items.img}
             alt={"img"}
             className="w-[40px] h-[40px]"
-            srcset=""
           />
         </div>
       ))}

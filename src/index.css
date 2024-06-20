@@ -22,6 +22,21 @@ body {
   height: 100svh;
 }
 
+#profil {
+  border: 4px solid #efae2e;
+  animation: 15s blop infinite linear;
+}
+
+@keyframes blop {
+  0%,
+  100% {
+    border-radius: 59% 41% 31% 69% / 51% 48% 52% 49%;
+  }
+  50% {
+    border-radius: 51% 49% 53% 47% / 42% 61% 39% 58%;
+  }
+}
+
 #skill {
   display: grid;
   grid-template: 50px 1fr/ 250px 1fr;
@@ -154,6 +169,7 @@ label {
 textarea:focus,
 input:focus {
   outline: none;
+  background: none;
 }
 
 #main-container > svg,
@@ -169,4 +185,23 @@ input:focus {
 #portofolio,
 #contact {
   position: relative;
+}
+
+#slide div {
+  display: inline-block;
+  animation: 6s slide infinite linear;
+}
+
+#slide div span {
+  margin: 0 0.5rem;
+  background-color: #efae2e;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }

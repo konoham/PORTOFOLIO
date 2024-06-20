@@ -103,8 +103,8 @@ const Hero = () => {
         >
           <img
             src="./profil.png"
-            className="rounded-full block mx-auto border-black  border-[5px]"
-            alt=""
+            className="rounded-full block mx-auto "
+            id="profil"
           />
         </motion.div>
       </div>

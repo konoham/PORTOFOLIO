@@ -1,19 +1,22 @@
-import { ArrowRight, DotsThreeVertical } from "@phosphor-icons/react";
 import { motion } from "framer-motion";
 import DataPortofolio from "../../../data/portofolio";
+import Detail from "./detail";
+import Url from "./url";
 
 const Card = () => {
   const variant = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 0, scaleX: 0, x: -200 },
     visible: (i) => ({
       opacity: 1,
-      transition: { duration: 0.8, delay: 0.5 * i },
+      scaleX: 1,
+      x: 0,
+      transition: { duration: 0.8, delay: 0.5 * i, staggerChildren: 0.5 * i },
     }),
   };
 
   return (
     <div className="w-full mt-[100px]">
-      <div className="container mx-auto flex justify-center items-center gap-4">
+      <div className="container mx-auto flex justify-center items-center gap-4 ">
         {DataPortofolio.map((item, i) => (
           <motion.div
             key={i}
@@ -23,28 +26,22 @@ const Card = () => {
             whileInView="visible"
             viewport={{ once: true }}
             custom={i}
-            className="w-[300px] h-fit overflow-x-hidden box-border border shadow-sm rounded-lg bg-card text-treed relative"
+            className="w-[300px] h-fit  box-border border shadow-sm rounded-lg bg-card text-treed relative"
           >
             <div className="relative shadow-sm">
               <motion.img
                 variants={variant}
                 viewport={{ once: true }}
-                initial={{ scaleX: 0, x: -200 }}
-                whileInView={{ scaleX: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 * i }}
+                initial="hidden"
+                whileInView="visible"
                 src={item.img}
                 className="h-[150px] w-full object-cover"
               />
               <motion.p
                 variants={variant}
                 viewport={{ once: true }}
-                initial={{ scaleX: 0, x: -200 }}
-                whileInView={{ scaleX: 1, x: 0 }}
-                transition={{
-                  duration: 0.8,
-                  staggerChildren: 0.5 * i,
-                  delay: 0.7 * i,
-                }}
+                transition="transition"
+                whileInView="visible"
                 className="bg-primary p-2 rounded-e-lg absolute left-0 bottom-0"
               >
                 #{i + 1}
@@ -54,9 +51,8 @@ const Card = () => {
               <motion.h1
                 variants={variant}
                 viewport={{ once: true }}
-                initial={{ scaleX: 0, x: -200 }}
-                whileInView={{ scaleX: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.55 * i }}
+                transition="transition"
+                whileInView="visible"
                 className="text-treed font-bold"
               >
                 {item.title}
@@ -64,9 +60,8 @@ const Card = () => {
               <motion.p
                 variants={variant}
                 viewport={{ once: true }}
-                initial={{ scaleX: 0, x: -200 }}
-                whileInView={{ scaleX: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 * i }}
+                transition="transition"
+                whileInView="visible"
                 className="text-sm"
               >
                 {item.deskripsi}
@@ -74,30 +69,12 @@ const Card = () => {
               <motion.div
                 variants={variant}
                 viewport={{ once: true }}
-                initial={{ scaleX: 0, x: -200 }}
-                whileInView={{ scaleX: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.7 * i }}
+                transition="transition"
+                whileInView="visible"
                 className="flex justify-between items-center mt-2"
               >
-                <a
-                  href={item.url}
-                  className="flex justify-center items-center gap-1 border-b border-treed"
-                >
-                  visit{" "}
-                  <span>
-                    <ArrowRight size={16} />
-                  </span>
-                </a>
-                <details className="relative text-sm">
-                  <summary className="list-none cursor-pointer">
-                    <DotsThreeVertical size={20} />
-                  </summary>
-                  <ul className="absolute top-[95%] left-[95%] border-primary border-2 py-2 px-8 box-border w-fit shadow-sm bg-transparent backdrop-blur-sm rounded-md">
-                    {item.library.map((items, i) => (
-                      <li key={i}>{items}</li>
-                    ))}
-                  </ul>
-                </details>
+                <Url item={item.url} />
+                <Detail item={item.library} />
               </motion.div>
             </div>
           </motion.div>

@@ -1,10 +1,9 @@
-import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import { useRef } from "react";
-import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { SendEmail } from "../../../libs/email";
 
 const schema = yup
   .object({
@@ -34,37 +33,14 @@ const Form = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const form = useRef();
-
-  const sendEmail = () => {
-    emailjs
-      .sendForm("service_kj2o1hf", "template_idtsf97", form.current, {
-        publicKey: "-QKPLhdZfJHcyu4KX",
-      })
-      .then(
-        () => {
-          Swal.fire({
-            title: "Thank You",
-            text: "Message Send",
-            icon: "success",
-          });
-        },
-        () => {
-          Swal.fire({
-            title: "upps",
-            text: "something error",
-            icon: "error",
-          });
-        }
-      );
-  };
+  const form = useRef(null);
 
   return (
     <>
       <form
         className="w-[60%] mx-auto text-sm text-black"
         ref={form}
-        onSubmit={handleSubmit(sendEmail)}
+        onSubmit={(e) => handleSubmit(SendEmail(form, e))}
         action=""
       >
         <div
@@ -77,6 +53,7 @@ const Form = () => {
               initial="hidden"
               whileInView="visible"
               transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
             >
               name
             </motion.label>
@@ -87,11 +64,15 @@ const Form = () => {
               transition={{ duration: 0.5 }}
               type="text"
               name="name"
-              id=""
+              viewport={{ once: true }}
               required
               {...register("name", { required: true })}
             />
-            {errors?.name && <p>{errors.name?.message}</p>}
+            {errors?.name && (
+              <p className="text-red-500 text-sm text-start">
+                {errors.name?.message}
+              </p>
+            )}
           </div>
           <div className="w-1/2">
             <motion.label
@@ -99,6 +80,7 @@ const Form = () => {
               initial="hidden"
               whileInView="visible"
               transition={{ duration: 0.5, delay: 0.5 }}
+              viewport={{ once: true }}
             >
               email
             </motion.label>
@@ -107,13 +89,17 @@ const Form = () => {
               initial="hidden"
               whileInView="visible"
               transition={{ duration: 0.5, delay: 0.5 }}
+              viewport={{ once: true }}
               type="email"
               name="email"
-              id=""
               required
               {...register("email", { required: true })}
             />
-            {errors?.email && <p>{errors.email?.message}</p>}
+            {errors?.email && (
+              <p className="text-red-500 text-sm text-start">
+                {errors.email?.message}
+              </p>
+            )}
           </div>
         </div>
 
@@ -122,7 +108,8 @@ const Form = () => {
             variants={variant}
             initial="hidden"
             whileInView="visible"
-            transition={{ duration: 0.5, delay: 0.8 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            viewport={{ once: true }}
           >
             massage
           </motion.label>
@@ -130,21 +117,26 @@ const Form = () => {
             variants={variant}
             initial="hidden"
             whileInView="visible"
-            transition={{ duration: 0.5, delay: 0.8 }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+            viewport={{ once: true }}
             type="text"
             name="message"
             className="w-full"
-            id=""
             required
             {...register("message", { required: true })}
           />
-          {errors?.message && <p>{errors.message?.message}</p>}
+          {errors?.message && (
+            <p className="text-red-500 text-sm text-start">
+              {errors.message?.message}
+            </p>
+          )}
         </div>
         <motion.button
           variants={variant}
           initial="hidden"
           animate="visible"
           transition={{ duration: 1 }}
+          viewport={{ once: true }}
           className="rounded-lg bg-second text-treed px-4 py-2 text-sm mt-2"
           value="Send"
           type="submit"
