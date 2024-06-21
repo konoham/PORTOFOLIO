@@ -4,7 +4,7 @@ const Title = ({ title, id }) => {
   return (
     <div
       id={id}
-      className="text-3xl text-treed font-bold text-center uppercase flex justify-center items-center gap-2"
+      className="text-xl md:text-3xl text-treed font-bold text-center uppercase flex justify-center items-center gap-2"
     >
       <motion.h1
         initial={{ y: 300, opacity: 0, scaleY: 0 }}

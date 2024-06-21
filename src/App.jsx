@@ -16,15 +16,15 @@ function App() {
         <Hero />
         <Navbar />
       </section>
-      <section id="skill" className="h-svh text-center mt-[100px] skill">
+      <section id="skill" className=" h-fit text-center mt-[100px] skill">
         <Title title={"skill & PORTOFOLIO"} id={"title"} />
         <TackStack />
         <Card />
       </section>
-      <section id="portofolio" className="h-svh mt-[-100px]">
+      {/* <section id="portofolio" className="h-svh mt-[-100px]">
         <Title title={"portofolio"} id={"Title-portofolio"} />
         <CardPlay />
-      </section>
+      </section> */}
       <section id="contact" className="h-svh ">
         <Title title={"contact"} id={"Title-contact"} />
         <Form />

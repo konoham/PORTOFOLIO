@@ -15,8 +15,8 @@ const Card = () => {
   };
 
   return (
-    <div className="w-full mt-[100px]">
-      <div className="container mx-auto flex justify-center items-center gap-4 ">
+    <div className="w-svw mt-[50px]  md:mt-[100px] md:w-full">
+      <div className="md:container md:mx-auto flex  justify-center items-center md:flex-row flex-col">
         {DataPortofolio.map((item, i) => (
           <motion.div
             key={i}
@@ -26,7 +26,7 @@ const Card = () => {
             whileInView="visible"
             viewport={{ once: true }}
             custom={i}
-            className="w-[300px] h-fit  box-border border shadow-sm rounded-lg bg-card text-treed relative"
+            className="w-full md:w-[300px] md:h-fit box-border border shadow-sm rounded-lg bg-card text-treed relative"
           >
             <div className="relative shadow-sm">
               <motion.img
