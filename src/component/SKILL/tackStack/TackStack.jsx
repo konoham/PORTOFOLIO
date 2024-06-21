@@ -18,34 +18,41 @@ const TackStack = () => {
   const stack = [
     {
       img: "./tackstack/html.png",
-      width: "w-[2rem]",
+      width: "md:w-[2rem]",
     },
     {
       img: "./tackstack/css.svg",
-      width: "w-[4rem]",
+      width: "md:w-[4rem]",
     },
     {
       img: "./tackstack/js.png",
-      width: "w-[6rem]",
+      width: "md:w-[6rem]",
     },
     {
       img: "./tackstack/raect.png",
-      width: "w-[8rem]",
+      width: "md:w-[8rem]",
     },
     {
       img: "./tackstack/next.png",
-      width: "w-[10rem]",
+      width: "md:w-[10rem]",
     },
     {
       img: "./tackstack/tailwind.png",
-      width: "w-[12rem]",
+      width: "md:w-[12rem]",
     },
   ];
 
   return (
-    <div className="mt-[140px]" id="tackstack">
+    <div
+      className="md:mt-[140px] grid grid-cols-2 justify-self-center w-full px-4"
+      id="tackstack"
+    >
       {stack.map((items, i) => (
-        <div key={i} className="flex justify-start items-center gap-2 mb-10">
+        <div
+          key={i}
+          className="flex justify-start items-center md:gap-2 md:mb-10"
+          id="stack"
+        >
           <motion.hr
             key={i}
             variants={variant}
@@ -53,8 +60,9 @@ const TackStack = () => {
             animate="visible"
             viewport={{ once: true }}
             custom={i}
-            className={items.width}
+            className={`${items.width}`}
             id="hr"
+            style={{ "--i": i }}
           />
           <motion.img
             variants={variant}
@@ -64,7 +72,8 @@ const TackStack = () => {
             custom={i}
             src={items.img}
             alt={"img"}
-            className="w-[40px] h-[40px]"
+            className="w-[80px] h-[80px] md:w-[40px] md:h-[40px]"
+            id="stack-img"
           />
         </div>
       ))}

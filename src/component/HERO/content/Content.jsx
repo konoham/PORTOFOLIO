@@ -19,7 +19,7 @@ const Hero = () => {
 
   useEffect(() => {
     const typed = new Typed(dynamicName.current, {
-      strings: ["Muhamad Rafli Rabani"],
+      strings: ["Muhamad", "Rafli", "Rabani"],
       typeSpeed: 100,
       backDelay: 2000,
       backSpeed: 100,
@@ -38,15 +38,15 @@ const Hero = () => {
     },
   };
   return (
-    <section className="h-svh text-start w-full" id="content">
-      <div className="flex justify-between items-center w-full container mx-auto h-svh ">
-        <div className="content w-1/2 font-medium text-2xl ps-20">
+    <section className="h-svh text-start w-full px-4" id="content">
+      <div className="flex justify-between items-center flex-col-reverse gap-0 w-full md:container md:mx-auto h-svh ">
+        <div className="content text-base font-medium md:text-2xl md:ps-20 w-full md:w-1/2">
           <motion.h1
             variants={variant}
             initial="hidden"
             animate="visible"
             transition={{ duration: 0.5 }}
-            className="text-5xl font-bold text-treed mb-1"
+            className="text-3xl md:text-5xl font-bold text-treed mb-1"
             id="sapaan"
           >
             Hi there✋,
@@ -56,7 +56,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             transition={{ duration: 0.6 }}
-            className="text-3xl font-bold mb-1 w-full"
+            className="text-xl md:text-3xl font-bold mb-1 w-full"
             id="name"
           >
             My Name is{" "}
@@ -67,7 +67,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             transition={{ duration: 0.7 }}
-            className="mb-2 text-3xl font-semibold"
+            className="text-xl mb-2 md:text-3xl font-semibold"
           >
             I`m A <span ref={dynamicText}></span>
           </motion.h1>
@@ -76,7 +76,7 @@ const Hero = () => {
             initial="hidden"
             animate="visible"
             transition={{ duration: 0.8 }}
-            className="text-treed text-xl leading-relaxed w-[85%]"
+            className="text-treed text-base md:text-xl leading-relaxed w-full md:w-[85%]"
           >
             Lorem ipsum dolor sit, amet consectetur adipisicing elit.
             Perspiciatis dolor saepe illum fuga excepturi asperiores? Aperiam
@@ -98,7 +98,7 @@ const Hero = () => {
           initial="hidden"
           animate="visible"
           transition={{ delay: 0.2, duration: 0.8 }}
-          className="img w-1/2"
+          className="img mt-4 w-full md:w-1/2"
           id="img"
         >
           <img
