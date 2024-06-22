@@ -1,0 +1,331 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  font-family: "Montserrat", sans-serif;
+}
+
+#blur {
+  background-color: transparent;
+  backdrop-filter: blur(2px);
+}
+
+#main-container {
+  display: grid;
+  grid-template: 50px 1fr /100px 1fr;
+  grid-template-areas:
+    "header header"
+    "navbar content";
+  height: 100svh;
+}
+
+#profil {
+  border: 4px solid #efae2e;
+  animation: 15s blop infinite linear;
+}
+
+@keyframes blop {
+  0%,
+  100% {
+    border-radius: 59% 41% 31% 69% / 51% 48% 52% 49%;
+  }
+  50% {
+    border-radius: 51% 49% 53% 47% / 42% 61% 39% 58%;
+  }
+}
+
+#skill {
+  position: relative;
+  z-index: 1;
+}
+
+#stack {
+  width: 100%;
+  padding: 1rem;
+  background-color: #eee8e3;
+}
+#stack:nth-child(even) {
+  background-color: #e8e1cf;
+}
+#stack:nth-child(odd) {
+  background-color: rgb(230, 230, 228);
+}
+#stack svg {
+  width: 4rem;
+  height: 4rem;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#title {
+  grid-area: title;
+}
+
+.skill::before {
+  content: "";
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 0;
+  top: -11%;
+  z-index: 3;
+  background-color: #efae2e;
+  border-bottom-right-radius: 18px;
+}
+
+ul > li {
+  list-style-type: circle;
+}
+
+#tackstack {
+  grid-area: tackstack;
+  box-sizing: border-box;
+  position: relative;
+}
+#card {
+  grid-area: library;
+}
+
+#header {
+  grid-area: header;
+  box-sizing: border-box;
+}
+#navbar {
+  grid-area: navbar;
+  height: calc(100% - 50px);
+}
+#content {
+  grid-area: content;
+}
+
+hr {
+  border-bottom: 2px solid #979689;
+}
+
+#sapaan {
+  letter-spacing: 0.2rem;
+}
+
+#navbar > div > ul > li {
+  writing-mode: vertical-lr;
+  font-family: "Oswald", sans-serif;
+}
+
+/* #img {
+  position: relative;
+  z-index: 1;
+}
+
+#img::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% 50% -50%);
+  background-image: linear-gradient(
+    to left top,
+    #dadada,
+    #ffd1ed,
+    #ffc4c5,
+    #ffd175,
+    #e5f637
+  );
+  width: 50%;
+  height: 100%;
+  z-index: 0;
+  border-radius: 50%;
+} */
+
+#name {
+  letter-spacing: 0.2rem;
+}
+
+input,
+textarea {
+  background: transparent;
+  border-bottom: 1px solid black;
+  padding: 0.8rem 0.5rem;
+}
+
+form > div > div,
+textarea {
+  display: flex;
+  flex-direction: column;
+  font-size: 400;
+}
+form {
+  display: grid;
+  grid-template: 100px 1fr / 1fr;
+  grid-template-areas:
+    "row-1 row-1"
+    "row-2 row-2";
+  font-weight: 600;
+}
+
+label {
+  font-size: 1rem;
+  line-height: 1.75rem;
+  font-weight: 600;
+}
+
+#name-email {
+  grid-area: row-1;
+}
+
+#pesan {
+  grid-area: row-2;
+}
+
+textarea:focus,
+input:focus {
+  outline: none;
+  background: none;
+}
+
+#main-container > svg,
+#skill > svg,
+#portofolio > svg,
+#contact > svg {
+  width: 500px;
+  height: 500px;
+  opacity: 0.7;
+}
+#main-container,
+#skill,
+#portofolio,
+#contact {
+  position: relative;
+}
+
+.slider-container {
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.slider {
+  display: flex;
+  width: fit-content;
+}
+
+.slide-track {
+  display: flex;
+  animation: slide 15s linear infinite;
+}
+
+.slide-track div {
+  width: 200px;
+  height: 100px;
+  margin: 4px 0.5rem;
+}
+.slide-track div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #main-container {
+    display: grid;
+    grid-template: 50px 1fr /100px 1fr;
+    grid-template-areas:
+      "header header"
+      "content content";
+    height: 100svh;
+  }
+  .content {
+    margin-bottom: 3.5rem;
+  }
+  #navbar {
+    display: none;
+  }
+
+  #tackstack {
+  }
+  #stack {
+    width: 100%;
+  }
+
+  .skill::before {
+    display: none;
+  }
+  #hr {
+    display: none;
+  }
+  #stack-img {
+    border: 2px solid #979689;
+    margin: auto;
+  }
+  input,
+  textarea {
+    background: transparent;
+    border-bottom: 1px solid black;
+    padding: 0.8rem 0.5rem;
+  }
+
+  form > div > div,
+  textarea {
+    display: flex;
+    flex-direction: column;
+    font-size: 400;
+  }
+  form {
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    gap: 1rem;
+    font-weight: 600;
+  }
+
+  label {
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+  }
+
+  #name-email {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  input {
+    width: 100%;
+  }
+
+  #pesan {
+    grid-area: row-2;
+    margin-top: 1rem;
+  }
+
+  textarea:focus,
+  input:focus {
+    outline: none;
+    background: none;
+  }
+  label {
+    padding: 0;
+    margin: 0;
+  }
+}
